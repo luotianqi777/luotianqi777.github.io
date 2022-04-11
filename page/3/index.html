@@ -145,6 +145,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2019/07/12/c++_erase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="骆天奇">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="填坑日记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/12/c++_erase/" class="post-title-link" itemprop="url">c++ erase的注意事项</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-12 21:23:43" itemprop="dateCreated datePublished" datetime="2019-07-12T21:23:43+08:00">2019-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-30 15:07:12" itemprop="dateModified" datetime="2022-03-30T15:07:12+08:00">2022-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>先看一段正常的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    string str = &quot;123456789&quot;;</span><br><span class="line">    str.erase(str.begin() + 2, str.end() - 2);</span><br><span class="line">    cout &lt;&lt; str;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>移除中间的一段字符<br>很好的发挥了作用<br>然后改了一下 希望依次删除字符串中的元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string::iterator it;</span><br><span class="line">    // 错误写法</span><br><span class="line">    for (it = str.begin(); it != str.end(); it++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; &quot; str: &quot; &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">        str.erase(it);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/c++/erase_error.jpg" alt="错误结果"></p>
+<p>结果出错并且返回异常<br>查资料得知 erase 的返回值为被删除迭代器的下一个迭代器<br>修改程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 正确写法</span><br><span class="line">    for (it = str.begin(); it != str.end(); )   // 注意这里去掉了it++</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; &quot; str: &quot; &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">        it = str.erase(it);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/c++/erase_right.jpg" alt="正确结果"></p>
+<p>结果无异常</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2018/09/17/bresenham/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -277,7 +353,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
