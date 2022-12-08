@@ -145,6 +145,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2020/04/17/scipy%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="骆天奇">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="填坑日记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/17/scipy%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">scipy用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-17 13:17:50" itemprop="dateCreated datePublished" datetime="2020-04-17T13:17:50+08:00">2020-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-30 11:20:39" itemprop="dateModified" datetime="2022-03-30T11:20:39+08:00">2022-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><code>sudo apt install python(3)-scipy</code></p>
+<p><code>pip(3) install scipy</code></p>
+<h2 id="解微分方程"><a href="#解微分方程" class="headerlink" title="解微分方程"></a>解微分方程</h2><h3 id="odeint-函数"><a href="#odeint-函数" class="headerlink" title="odeint()函数"></a><code>odeint()</code>函数</h3><p>需要至少三个参数</p>
+<ul>
+<li>微分方程函数</li>
+<li>微分方程初值</li>
+<li>微分自变量</li>
+</ul>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>以 SIR 模型为例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">from scipy.integrate import odeint</span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 微分方程</span><br><span class="line">def diff(y, t, s2ip, i2rp):</span><br><span class="line">    s, i, r = y</span><br><span class="line">    s2i = i * s * s2ip</span><br><span class="line">    i2r = i * i2rp</span><br><span class="line">    ds = -s2i</span><br><span class="line">    di = s2i - i2r</span><br><span class="line">    dr = i2r</span><br><span class="line">    return [ds, di, dr]</span><br><span class="line"></span><br><span class="line"># 自变量范围</span><br><span class="line">t = np.arange(0, 90)</span><br><span class="line"># 求解</span><br><span class="line">y = odeint(</span><br><span class="line">    # 微分方程</span><br><span class="line">    func=diff,</span><br><span class="line">    # y初值</span><br><span class="line">    y0=(1, 0.01, 0),</span><br><span class="line">    # 自变量</span><br><span class="line">    t=t,</span><br><span class="line">    # 其他参数(此处为s2ip,i2rp)</span><br><span class="line">    args=(0.4, 0.2)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"># 返回数据为积分后的数值序列</span><br><span class="line">data = pd.DataFrame(y)</span><br><span class="line">data.columns = [&#x27;S&#x27;, &#x27;I&#x27;, &#x27;R&#x27;]</span><br><span class="line">data.plot()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="优化模型，拟合数据"><a href="#优化模型，拟合数据" class="headerlink" title="优化模型，拟合数据"></a>优化模型，拟合数据</h2><h3 id="minimize"><a href="#minimize" class="headerlink" title="minimize"></a>minimize</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 定义损失函数</span><br><span class="line"># 返回一个值用来量化与期望的大小</span><br><span class="line">def lose_fun(</span><br><span class="line">    x0, # 变量值</span><br><span class="line">    args, # 其他参数(常数值)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 优化函数</span><br><span class="line"># 返回值res.x取得优化后的参数</span><br><span class="line">def minimize(</span><br><span class="line">    fun, # 损失函数/目标函数</span><br><span class="line">    x0, # 变量的初始值猜测值</span><br><span class="line">    args, # lose_fun的其他参数</span><br><span class="line">    method, # 优化方法</span><br><span class="line">    bounds， # 参数范围[(min,max),(min,max),...]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2020/04/15/vim%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1101,74 +1179,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2019/07/12/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="骆天奇">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="填坑日记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/12/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">反转字符串(杂谈)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-12 21:40:21" itemprop="dateCreated datePublished" datetime="2019-07-12T21:40:21+08:00">2019-07-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 20:31:24" itemprop="dateModified" datetime="2022-03-30T20:31:24+08:00">2022-03-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>反转字符串是个很简单也比较常用的方法<br>此文仅做杂谈，无技术含量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void myReverse(const string&amp; str) &#123;</span><br><span class="line">    char* c_str = (char*)str.c_str();</span><br><span class="line">    char* p, * q;</span><br><span class="line">    p = c_str;</span><br><span class="line">    q = c_str + str.size() - 1;</span><br><span class="line">    while (p &lt; q) &#123;</span><br><span class="line">        char temp_c = *p;</span><br><span class="line">        *p = *q;</span><br><span class="line">        *q = temp_c;</span><br><span class="line">        p++;</span><br><span class="line">        q--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    string str = &quot;123456789&quot;;</span><br><span class="line">    myReverse(str);    // 反转方式1</span><br><span class="line">    cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    reverse(str.begin() + 2, str.end() - 2);    // 反转方式2</span><br><span class="line">    cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; string(str.rbegin(), str.rend());    // 反转方式3</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运用迭代器还有更多有趣的写法<br>这里不一一列出</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1239,14 +1249,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
