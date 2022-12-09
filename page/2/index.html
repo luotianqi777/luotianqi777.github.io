@@ -145,6 +145,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2020/05/07/LaTeX%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="骆天奇">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="填坑日记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/07/LaTeX%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">LaTeX常用技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-07 16:50:41" itemprop="dateCreated datePublished" datetime="2020-05-07T16:50:41+08:00">2020-05-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-30 15:07:37" itemprop="dateModified" datetime="2022-03-30T15:07:37+08:00">2022-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="入门教程"><a href="#入门教程" class="headerlink" title="入门教程"></a>入门教程</h2><p><a href="/download/lshort-zh-cn.pdf">一份(不太)简短的 LaTeX 介绍</a></p>
+<h2 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">% 代码环境</span><br><span class="line">\usepackage&#123;listings&#125;</span><br><span class="line">% 颜色</span><br><span class="line">\usepackage&#123;xcolor&#125;</span><br><span class="line">% 字体</span><br><span class="line">\usepackage&#123;fontspec&#125;</span><br><span class="line">% 代码格式设置</span><br><span class="line">\lstset&#123;</span><br><span class="line">    % 语言</span><br><span class="line">    language=python,</span><br><span class="line">    % 自动换行</span><br><span class="line">    breaklines=true,</span><br><span class="line">    % 行号</span><br><span class="line">    numbers=left,</span><br><span class="line">    % 字符串显示空格</span><br><span class="line">    showstringspaces=false,</span><br><span class="line">    % 基础字体设置</span><br><span class="line">    basicstyle=\small\fontspec&#123;Monaco&#125;,</span><br><span class="line">    % 行号风格</span><br><span class="line">    numberstyle=\tiny,</span><br><span class="line">    % 字符串风格</span><br><span class="line">    stringstyle=\color&#123;orange&#125;,</span><br><span class="line">    % 注释风格</span><br><span class="line">    commentstyle=\color&#123;gray&#125;,</span><br><span class="line">    % 关键字风格</span><br><span class="line">    keywordstyle=\color&#123;blue&#125;,</span><br><span class="line">    % 左侧margin</span><br><span class="line">    xleftmargin = 25pt,</span><br><span class="line">    % 添加frame</span><br><span class="line">    frame = tb,</span><br><span class="line">    % 设置frame左侧margin</span><br><span class="line">    framexleftmargin = 20pt,</span><br><span class="line">&#125;</span><br><span class="line">% 引用代码</span><br><span class="line">\lstinputlisting&#123;filepath&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="图表公式章节编号"><a href="#图表公式章节编号" class="headerlink" title="图表公式章节编号"></a>图表公式章节编号</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">% 重定义表编号格式</span><br><span class="line">\renewcommand&#123;\thetable&#125;&#123;\thesection-\arabic&#123;table&#125;&#125;</span><br><span class="line">% 重定义图编号格式</span><br><span class="line">\renewcommand&#123;\thefigure&#125;&#123;\thesection-\arabic&#123;figure&#125;&#125;</span><br><span class="line">% 重定义公式编号格式</span><br><span class="line">\renewcommand&#123;\theequation&#125;&#123;\thesection.\arabic&#123;equation&#125;&#125;</span><br><span class="line">\makeatletter</span><br><span class="line">% section计数器增加时重置table计数器</span><br><span class="line">\@addtoreset&#123;table&#125;&#123;section&#125;</span><br><span class="line">% section计数器增加时重置figure计数器</span><br><span class="line">\@addtoreset&#123;figure&#125;&#123;section&#125;</span><br><span class="line">% section计数器增加时重置equation计数器</span><br><span class="line">\@addtoreset&#123;equation&#125;&#123;section&#125;</span><br><span class="line">\makeatother</span><br></pre></td></tr></table></figure>
+
+<h2 id="中英文摘要"><a href="#中英文摘要" class="headerlink" title="中英文摘要"></a>中英文摘要</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">% 英文摘要</span><br><span class="line">\newenvironment&#123;enabstract&#125;&#123;</span><br><span class="line">    \par\small</span><br><span class="line">    \noindent\mbox&#123;&#125;\hfill&#123;\bfseries Abstract&#125;\hfill\mbox&#123;&#125;\par</span><br><span class="line">    \vskip 2.5ex&#125;&#123;\par\vskip 2.5ex&#125;</span><br><span class="line">% 中文摘要</span><br><span class="line">\newenvironment&#123;cnabstract&#125;&#123;</span><br><span class="line">    \par\small</span><br><span class="line">    \noindent\mbox&#123;&#125;\hfill&#123;\bfseries 摘要&#125;\hfill\mbox&#123;&#125;\par</span><br><span class="line">    \vskip 2.5ex&#125;&#123;\par\vskip 2.5ex&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="绘制流程图"><a href="#绘制流程图" class="headerlink" title="绘制流程图"></a>绘制流程图</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">% 引入tikz包</span><br><span class="line">\usepackage&#123;tikz&#125;</span><br><span class="line">% 加入形状箭头</span><br><span class="line">\usetikzlibrary&#123;shapes.geometric,arrows&#125;</span><br><span class="line">% 定义各类节点</span><br><span class="line">\tikzstyle&#123;startstop&#125; = [rectangle,rounded corners, minimum width=1cm,minimum height=1cm,text centered, draw=black,fill=red!30]</span><br><span class="line">\tikzstyle&#123;io&#125; = [trapezium, trapezium left angle = 70,trapezium right angle=110,minimum width=1cm,minimum height=1cm,text centered,draw=black,fill=blue!30]</span><br><span class="line">\tikzstyle&#123;process&#125; = [rectangle,minimum width=1cm,minimum height=1cm,text centered,text width =3cm,draw=black,fill=orange!30]</span><br><span class="line">\tikzstyle&#123;decision&#125; = [diamond,minimum width=1cm,minimum height=1cm,text centered,draw=black,fill=green!30]</span><br><span class="line">\tikzstyle&#123;arrow&#125; = [thick,-&gt;,&gt;=stealth]</span><br><span class="line"></span><br><span class="line">% 绘制</span><br><span class="line">\begin&#123;figure&#125;[H]</span><br><span class="line">    \centering</span><br><span class="line">    % 开始tikzpicture绘制环境</span><br><span class="line">    % node distance为节点间默认距离</span><br><span class="line">    \begin&#123;tikzpicture&#125;[node distance=2cm]</span><br><span class="line">        % 定义各个节点及相对(或绝对)位置</span><br><span class="line">        \node[startstop](S)&#123;S&#125;;</span><br><span class="line">        \node[startstop,right of=S](E)&#123;E&#125;;</span><br><span class="line">        \node[startstop,right of=E](I)&#123;I&#125;;</span><br><span class="line">        \node[startstop,right of=I](D)&#123;D&#125;;</span><br><span class="line">        \node[startstop,below of=I](R)&#123;R&#125;;</span><br><span class="line">        % 开始连线</span><br><span class="line">        \draw[arrow](S)--node[above]&#123;$S\to E$&#125;(E);</span><br><span class="line">        \draw[arrow](E)--node[above]&#123;$E\to I$&#125;(I);</span><br><span class="line">        \draw[arrow](I)--node[above]&#123;&#125;(D);</span><br><span class="line">        % out, in 为绘制曲线的角度， 详见LaTeX教程</span><br><span class="line">        \draw[arrow,out=-90,in=180](E) to node[left]&#123;$E\to R$&#125;(R);</span><br><span class="line">        \draw[arrow,out=-120,in=120](I) to node[left]&#123;$I\to R$&#125;(R);</span><br><span class="line">        \draw[arrow,out=60,in=-60](R) to node[right]&#123;$R\to I$&#125;(I);</span><br><span class="line">    \end&#123;tikzpicture&#125;</span><br><span class="line">    \caption&#123;$SEIRD$模型流程图&#125;</span><br><span class="line">\end&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下<br><img src="/images/LaTeX/SEIRD.jpg" alt="SEIRD模型流程图"></p>
+<h2 id="设置章节格式"><a href="#设置章节格式" class="headerlink" title="设置章节格式"></a>设置章节格式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">% 章节格式</span><br><span class="line">\usepackage&#123;titlesec&#125;</span><br><span class="line">% 设置章节格式</span><br><span class="line">\titleformat&#123;\section&#125;&#123;\centering\heiti\zihao&#123;-3&#125;&#125;&#123;第\arabic&#123;section&#125;章&#125;&#123;1em&#125;&#123;&#125;</span><br><span class="line">\titleformat*&#123;\subsection&#125;&#123;\heiti\zihao&#123;4&#125;&#125;</span><br><span class="line">\titleformat*&#123;\subsubsection&#125;&#123;\heiti\zihao&#123;-4&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2020/04/17/scipy%E7%94%A8%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1107,78 +1182,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luotianqi777.github.io/2019/07/12/c-split-getline/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="骆天奇">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="填坑日记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/12/c-split-getline/" class="post-title-link" itemprop="url">c++实现split(通过getline)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-12 21:51:53" itemprop="dateCreated datePublished" datetime="2019-07-12T21:51:53+08:00">2019-07-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 20:31:24" itemprop="dateModified" datetime="2022-03-30T20:31:24+08:00">2022-03-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>众所周知<br>c++中 string 没有自带的 split 函数(亏你还是老大哥)<br>网上关于 split 函数的优秀写法很多<br>本人不再赘述<br>近几日翻 C++API 时发现了 getline 一个有趣的方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">istream&amp; getline (istream&amp; is, string&amp; str, char delim);</span><br></pre></td></tr></table></figure>
-
-<p>第一个参数是一个输入流，第二个参数是一个对字符串的常引用，第三个参数是分割符<br>在读入时遇到分割符则停止<br>可以用这个来实现单分割符的 split 功能</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;sstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    stringstream input(&quot;45,65,45231,4646,4564&quot;);</span><br><span class="line">    string str;</span><br><span class="line">    while (getline(input, str, &#x27;,&#x27;)) &#123;</span><br><span class="line">        cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/c++/split_getline.jpg"></p>
-<p>简单方便快速。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1249,14 +1252,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
